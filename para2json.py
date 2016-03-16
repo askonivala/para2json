@@ -33,7 +33,7 @@ for paragraph in paragraphs:
 #    'title' : doc['pageOCRData']['metadata']['title'],
 #    'date' : doc['pageOCRData']['metadata']['published']['#text'],
 #    'lang' : doc['pageOCRData']['metadata']['language'],
-            'text' : paragraph.rstrip('\n')
+            'text' : paragraph.replace('\n', ' ')
         }
     except KeyError:
         data = {
