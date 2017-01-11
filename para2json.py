@@ -8,6 +8,7 @@ import json
 
 # Pass the argument to filename
 filename = sys.argv[-1]
+file_export = filename + ".json"
 
 # If no filename is given terminate the program
 if filename == "./para2json.py":
@@ -44,7 +45,7 @@ for paragraph in paragraphs:
             'series' : filename,
             'text' : ''
         }
-    with open('./data.json','a') as outfile:
+    with open(file_export,'a') as outfile:
         json.dump(data, outfile, sort_keys=False)
         outfile.write('\n')
     outfile.close()
