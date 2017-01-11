@@ -17,6 +17,7 @@ if filename == "./para2json.py":
 	sys.exit()
 
 par_separator = "\n\n"
+counter = 0
 
 # Reading the text file to be processed.
 print "Loading text..."
@@ -26,9 +27,11 @@ with open(filename, 'r') as text_file:
 paragraphs = text.split(par_separator)
 
 for paragraph in paragraphs:
+    counter = counter + 1
+    id_name = filename + "." + str(counter)
     try:
         data = {
-            'id' : filename,
+            'id' : id_name,
             'series' : filename,
 #    'title' : doc['pageOCRData']['metadata']['title'],
 #    'date' : doc['pageOCRData']['metadata']['published']['#text'],
@@ -37,7 +40,7 @@ for paragraph in paragraphs:
         }
     except KeyError:
         data = {
-            'id' : filename,
+            'id' : id_name,
             'series' : filename,
             'text' : ''
         }
